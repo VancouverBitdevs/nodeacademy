@@ -1,0 +1,51 @@
+title: Node Academy
+author: Vancouver Bitcoiners
+url: https://www.codeacademy.org # root address of the site
+description: > # description of the site (multiple lines allowed)
+  Node Academy is an initiative of Vancouver Bitcoiners to help enthusiasts getting started with their own Bitcoin Lightning Network node. It is part of the Pacific Nodewest noderunners community and open to everyone.
+
+permalink: /:slug
+
+favicon: "./logo.png" # relative path to site's favicon
+
+twitter:
+    username: pacificnodewest # update or delete this
+    card: summary_large_image
+
+#theme: moonwalk # if you are using GitHub Pages, change it to remote_theme: abhinavs/moonwalk
+remote_theme: abhinavs/moonwalk
+
+theme_config:
+  appearance: "dark" # can be "light", "dark" or "auto"
+  appearance_toggle: true # if appearance can be switched by user
+  back_home_text: "home.." # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: true # show blog description
+  show_navbar: true # show horizontal navbar
+  show_footer: true # show footer links in home page,add in _data/home.yml
+  show_copyright: true # show copyright notice in footer
+  # following keys are using to create home layout
+  show_projects: true # show projects as cards, add in _data/home.yml
+  show_blog: true # show blog posts added in _posts
+  show_resources: false # show old projects as cards, add in _data/home.yml
+  show_misc_list: false # show generic vertical list for misc details, add _data/home.yml
+  show_reading_time: true # show number of words and reading time in the blog posts
+  show_tags: true # show tags in a blog posts
+  # options for "home" page
+  home:
+    title_projects: Courses
+    title_misc_list: Details
+    title_blog: Course contents
+    title_resources: Additional Resources
+
+soopr:
+  publish_token: "" # sign up at https://www.soopr.co to get your publish token and personalize share and reaction options
+
+highlighter: rouge
+
+sass:
+  style: :compressed
+
+plugins:
+  - jekyll-feed
+  - jekyll-soopr-seo-tag

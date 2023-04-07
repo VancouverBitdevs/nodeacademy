@@ -1,0 +1,115 @@
+navbar_entries:
+  - title: about
+    url: about
+
+  - title: blog
+    url: blog
+
+  - title: website
+    url: https://www.nodeacademy.org
+    
+  - title: community
+    url: https://amboss.space/community/4a8adb4b-3c42-4830-8363-32fab846d1ff
+
+project_entries:
+  - title: Introduction
+    url: overview-post
+    desc: Introduction to the academy. Decisions you will have to make.
+
+  - title: Chapter 1
+    url: overview-post
+    desc: Get your machine ready or acquire a new VPS.
+
+  - title: Chapter 2
+    url: overview-post
+    desc: Introduction to the command line.
+
+  - title: Chapter 3
+    url: overview-post
+    desc: Installing Bitcoin Core.
+
+  - title: Chapter 4
+    url: overview-post
+    desc: Installing LND.
+
+  - title: Chapter 5
+    url: overview-post
+    desc: Get started with LND.
+    highlight: Objective
+
+  - title: Chapter 6
+    url: overview-post
+    desc: Connect to Zeus and Lightning Terminal
+
+  - title: Chapter 7
+    url: overview-post
+    desc: Install Thunderhub/RTL/LNbits
+
+  - title: Chapter 8
+    url: overview-post
+    desc: Maintain your node
+
+resources:
+  - title: Soopr
+    url: https://www.soopr.co
+    desc: Delight your readers - add beautiful share and like buttons easily to your websites 
+    highlight: NEW
+
+  - title: Cookie
+    url: https://github.com/abhinavs/cookie
+    desc: An open source landing website with supporting pages and integrated blog
+
+  - title: Moonwalk
+    url: https://github.com/abhinavs/moonwalk
+    desc: A fast and minimalist Jekyll blog theme with clean dark mode
+
+  - title: Humangous
+    url: https://www.humangous.co
+    desc: The better people know you, the better they collaborate
+
+footer_entries:
+  - title: Vancouver Bitdevs
+    url: https://bitdevs.ca
+
+  - title: twitter
+    url: https://twitter.com/pacificnodewest
+
+  - title: github
+    url: https://github.com/VancouverBitdevs
+
+  - title: feed
+    url: feed.xml
+
+misc_entries:
+  - title: this is an example vertical list
+    url: false
+
+  - title: you can show or hide using a boolean flag in _config.yml
+    url: false
+
+  - title: and you can add data in _data/home.yml
+    url: false
+
+  - title: Blog posts
+    post_list: true
+    url: false
+
+  - title: moonwalk on the Internet
+    url: false
+    entries:
+      - title: on Github
+        url: https://github.com/abhinavs/moonwalk
+
+      - title: originally built for abhinav's homepage
+        url: https://www.abhinav.co
+
+      - title: this list is scalable and can be nested
+        url: false
+        entries:
+          - title: this is nested inside a nested list
+            url: false
+
+          - title: it is easy to use, see _data/home.yml to see how to configure it.
+            url: false
+
+
