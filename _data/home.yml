@@ -4,16 +4,16 @@ navbar_entries:
 
   - title: blog
     url: blog
-
-  - title: website
-    url: https://www.nodeacademy.org
     
   - title: community
     url: https://amboss.space/community/4a8adb4b-3c42-4830-8363-32fab846d1ff
+    
+  - title: join now
+    url: https://docs.google.com/forms/d/e/1FAIpQLSfpH3Qk30GuKFgf_FckQqnySGx8DWao72oO8tMZZeB6lplLGA/viewform
 
 project_entries:
   - title: Introduction
-    url: overview-post
+    url: introduction
     desc: Introduction to the academy. Decisions you will have to make.
 
   - title: Chapter 1
@@ -50,22 +50,14 @@ project_entries:
     desc: Maintain your node
 
 resources:
-  - title: Soopr
-    url: https://www.soopr.co
-    desc: Delight your readers - add beautiful share and like buttons easily to your websites 
-    highlight: NEW
+  - title: Builder's Guide
+    url: https://docs.lightning.engineering/
+    desc: Documentation for Lightning Lab's products and services, including LND, Loop, Pool and Terminal.
+    highlight: LND
 
-  - title: Cookie
-    url: https://github.com/abhinavs/cookie
-    desc: An open source landing website with supporting pages and integrated blog
-
-  - title: Moonwalk
-    url: https://github.com/abhinavs/moonwalk
-    desc: A fast and minimalist Jekyll blog theme with clean dark mode
-
-  - title: Humangous
-    url: https://www.humangous.co
-    desc: The better people know you, the better they collaborate
+  - title: Plebnet Wiki
+    url: https://plebnet.wiki/wiki/Main_Page
+    desc: The world's largest noderunner community.
 
 footer_entries:
   - title: Vancouver Bitdevs
