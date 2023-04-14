@@ -49,3 +49,6 @@ sass:
 plugins:
   - jekyll-feed
   - jekyll-soopr-seo-tag
+  
+include:
+  - .well-known
