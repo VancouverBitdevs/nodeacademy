@@ -1,0 +1,8 @@
+{
+"callback":"https://api.geyser.fund/.well-known/lnurlp/murdawkmedia",
+"maxSendable":5000000000,
+"minSendable":1000,
+"metadata":"[[\"text/plain\", \"Thank you for supporting: Media Production Services by Murdawk Media!\"], [\"text/identifier\", \"murdawkmedia@geyser.fund\"]]",
+"commentAllowed":280,
+"tag":"payRequest"
+}
