@@ -17,7 +17,7 @@ project_entries:
     desc: Introduction to the academy. Decisions you will have to make.
 
   - title: Chapter 1
-    url: overview-post
+    url: hardware
     desc: Get your machine ready or acquire a new VPS.
 
   - title: Chapter 2
@@ -58,6 +58,10 @@ resources:
   - title: Plebnet Wiki
     url: https://plebnet.wiki/wiki/Main_Page
     desc: The world's largest noderunner community.
+    
+  - title: BTC Sessions
+    url: https://www.youtube.com/@BTCSessions
+    desc: Video guides on using Bitcoin.
 
 footer_entries:
   - title: Vancouver Bitdevs
