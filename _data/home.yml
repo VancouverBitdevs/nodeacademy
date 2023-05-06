@@ -16,9 +16,13 @@ project_entries:
     url: introduction
     desc: Introduction to the academy. Decisions you will have to make.
 
-  - title: Chapter 1
+  - title: Chapter 1A
     url: hardware
-    desc: Get your machine ready or acquire a new VPS.
+    desc: Get your machine to run a Lightning node at home or in the office.
+
+  - title: Chapter 1B
+    url: vps
+    desc: Set up a virtual private server for a Lightning node in the cloud.
 
   - title: Chapter 2
     url: overview-post
