@@ -27,14 +27,17 @@ project_entries:
   - title: Chapter 2
     url: overview-post
     desc: Introduction to the command line.
+    highlight: In progress
 
   - title: Chapter 3
     url: overview-post
     desc: Installing Bitcoin Core.
+    highlight: In progress
 
   - title: Chapter 4
     url: overview-post
     desc: Installing LND.
+    highlight: In progress
 
   - title: Chapter 5
     url: overview-post
@@ -44,15 +47,18 @@ project_entries:
   - title: Chapter 6
     url: overview-post
     desc: Connect to Zeus and Lightning Terminal
+    highlight: In progress
 
   - title: Chapter 7
     url: overview-post
     desc: Install Thunderhub/RTL/LNbits
-
+    highlight: In progress
+    
   - title: Chapter 8
     url: overview-post
     desc: Maintain your node
-
+    highlight: In progress
+    
 resources:
   - title: Builder's Guide
     url: https://docs.lightning.engineering/
