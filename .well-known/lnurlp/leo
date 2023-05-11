@@ -1,0 +1,8 @@
+{
+  "tag": "payRequest",
+  "callback": "https://send.laisee.org/lnurlp/api/v1/lnurl/cb/3P2dKN",
+  "minSendable": 100000,
+  "maxSendable": 10000000000,
+  "metadata": "[[\"text/plain\", \"leo@nodeacademy.org\"]]",
+  "commentAllowed": 30
+}
