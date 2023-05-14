@@ -29,9 +29,14 @@ project_entries:
     desc: Introduction to the command line.
     highlight: In progress
 
-  - title: Chapter 3
-    url: overview-post
+  - title: Chapter 3A
+    url: install-bitcoin
     desc: Installing Bitcoin Core.
+    highlight: In progress
+    
+  - title: Chapter 3B
+    url: configure-bitcoin
+    desc: Configuring and running Bitcoin Core.
     highlight: In progress
 
   - title: Chapter 4
