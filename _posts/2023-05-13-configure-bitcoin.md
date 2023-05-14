@@ -10,6 +10,11 @@ Before we start Bitcoin Core for the first time, we are going to configure it wi
 
 First, we are going to create a configuration file and place it in the directory where Bitcoin Core can find it as we start it up.
 
+### Useful resources:
+
+- [Jameson Lopp's Bitcoin config file generator](https://jlopp.github.io/bitcoin-core-config-generator/)
+- [Complete sample bitcoin.conf file](/bitcoin-conf)
+
 ### Create a configuration file
 
 If you installed Bitcoin Core from source or downloaded the binaries, make a folder called `.bitcoin` in your home directory, then open a text editor to place the config file here.

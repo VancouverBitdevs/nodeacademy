@@ -8,6 +8,10 @@ tags: [academy, bitcoin]
 
 Bitcoin Core, also known by its process name `bitcoind`, is by far the most popular implementation of a Bitcoin node. It is written in C++ and as of today available as version 24.0.1. It is a decendant of the "original" Bitcoin implementation, released in January 2009 by Satoshi Nakamoto. The source code can be found on the project's website [bitcoincore.org](https://bitcoincore.org/) as well as the [Github repository.](https://github.com/bitcoin/bitcoin).
 
+### Useful resources:
+
+- [Unix Build Notes](https://github.com/bitcoin/bitcoin/blob/master/doc/build-unix.md)
+
 On Ubuntu, there are three ways we can download the Bitcoin Core software:
 
 - From source, meaning built from the raw source code
