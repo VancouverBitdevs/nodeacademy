@@ -40,7 +40,7 @@ datadir=/mnt/bitcoin
 prune=20000
 ```
 
-We can now save this file (`Ctrl` + `O`) and exit (`Ctrl` + `X`) the editor.
+We can now save this file (`Ctrl` + `O`) + (`Enter`) to confirm filename and exit (`Ctrl` + `X`) the editor.
 
 ### Start Bitcoin Core
 
@@ -64,6 +64,11 @@ We can now follow the log files with this command. Adjust the path if your bitco
 
 ```
 tail -f ~/mnt/bitcoin/debug.log
+```
+NOTE: if the log tail fails, follow this troubleshooting procedure (for Lunanode config)
+```
+cd ~
+tail -f /mnt/bitcoin/debug.log
 ```
 
 We can exit this log by pressing `Ctrl` + `C`.
