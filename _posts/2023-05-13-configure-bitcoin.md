@@ -37,7 +37,7 @@ We can use the following sample configuration file, adjust it to our needs and p
 datadir=/mnt/bitcoin
 
 # We prune the blockchain to 20GB so that it fits on our 25GB drive. The other 5GB will be free to be taken by other data of Bitcoin Core. If you expect 
-prune=20000
+prune=19000
 ```
 
 We can now save this file (`Ctrl` + `O`) + (`Enter`) to confirm filename and exit (`Ctrl` + `X`) the editor.

@@ -54,7 +54,7 @@ cd bitcoin
 
 ### Compiling Bitcoin Core
 
-Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `24.0.1`. You can check the latest version on the [release page of the project](https://github.com/bitcoin/bitcoin/releases).
+Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `24.1`. You can check the latest version on the [release page of the project](https://github.com/bitcoin/bitcoin/releases).
 
 ```shell
 git checkout v24.0.1
