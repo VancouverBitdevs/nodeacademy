@@ -134,3 +134,13 @@ litd
 If it doesn't stop or crash with an error, great! **We've completed our Tor configuration process!**
 
 You can stop the process by pressing `Ctrl` + `C`. That should send the shutdown signal and `litd` should shut down gracefully.
+
+## Configure Bitcoin Core (optional)
+
+We can also configure Bitcoin Core to connect to its peers over the Tor network.
+
+All we'll have to do is add the following line to our configuration file in `~/.bitcoin/bitcoin.conf`.
+
+```
+proxy=127.0.0.1:9050
+```
