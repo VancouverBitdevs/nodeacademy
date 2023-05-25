@@ -45,6 +45,11 @@ project_entries:
     url: configure-lnd
     desc: Configuring LND.
     highlight: In progress
+    
+  - title: Chapter 4C
+    url: configure-tor
+    desc: Configuring Tor.
+    highlight: In progress
 
   - title: Chapter 5
     url: overview-post
