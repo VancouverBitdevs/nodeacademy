@@ -15,6 +15,7 @@ First, we are going to create a configuration file and place it in the directory
 - [Litd Installation Guide](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/run-litd)
 - [LND Installation Guide](https://docs.lightning.engineering/lightning-network-tools/lnd/run-lnd)
 - [Lastpass Password generator tool](https://www.lastpass.com/features/password-generator#generatorTool)
+- [LND sample configuration file](/lnd-conf)
 
 ### Configure Bitcoin Core
 
