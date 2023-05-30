@@ -59,7 +59,7 @@ sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
 
 ```shell
-sudo nano ~/.bashrc
+nano ~/.bashrc
 ```
 
 At the very bottom, we will place the following snippet:
@@ -107,7 +107,7 @@ git checkout v0.10.0-alpha
 We can now install the software with
 
 ```shell
-make install
+make go-install go-install-cli
 ```
 
 We can verify that `litd` is properly installed on our machine with:
