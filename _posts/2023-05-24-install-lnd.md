@@ -49,6 +49,10 @@ We can find the latest version of go on its [official website](https://go.dev/dl
 cd ~/Downloads
 wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
 ```
+Note: if ~/Downloads folder does not exist on your machine create a folder and try again
+```shell
+mkdir ~/Downloads
+```
 
 We are now going to unpack this repository with the command:
 
@@ -73,6 +77,7 @@ export PATH=$PATH:$GOPATH/bin
 
 We will once again save our edits with `Ctrl` + `O` and `Enter`, then exit the editor with `Ctrl` + `X`.
 
+
 We can now check our installation.
 
 ```shell
@@ -80,6 +85,19 @@ go version
 ```
 
 The output should read: `go version go1.20.4 linux/amd64`
+
+Note: Changes made to a profile file may not apply until the next time you log into your computer.
+If you get the following error
+$ go version
+Command 'go' not found, but can be installed with:
+sudo snap install go         # version 1.20.4, or
+sudo apt  install golang-go  # version 2:1.18~0ubuntu2
+sudo apt  install gccgo-go   # version 2:1.18~0ubuntu2
+See 'snap info go' for additional versions.
+```shell
+exit
+```
+then SSH again
 
 ### Downloading the source code
 
