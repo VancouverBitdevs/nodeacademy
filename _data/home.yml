@@ -39,20 +39,17 @@ project_entries:
   - title: Chapter 4A
     url: install-lnd
     desc: Installing LND.
-    highlight: In progress
     
   - title: Chapter 4B
     url: configure-lnd
     desc: Configuring LND.
-    highlight: In progress
     
   - title: Chapter 4C
     url: configure-tor
     desc: Configuring Tor.
-    highlight: In progress
 
   - title: Chapter 5
-    url: overview-post
+    url: run-lnd
     desc: Get started with LND.
     highlight: Objective
 
