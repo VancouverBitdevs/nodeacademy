@@ -87,17 +87,22 @@ go version
 The output should read: `go version go1.20.4 linux/amd64`
 
 Note: Changes made to a profile file may not apply until the next time you log into your computer.
-If you get the following error
+If you get the following error:
+
+```
 $ go version
 Command 'go' not found, but can be installed with:
 sudo snap install go         # version 1.20.4, or
 sudo apt  install golang-go  # version 2:1.18~0ubuntu2
 sudo apt  install gccgo-go   # version 2:1.18~0ubuntu2
 See 'snap info go' for additional versions.
+```
+Type:
+
 ```shell
 exit
 ```
-then SSH again
+Then SSH into your machine again.
 
 ### Downloading the source code
 

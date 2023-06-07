@@ -111,7 +111,7 @@ lnd.listen=0.0.0.0:9735
 lnd.tor.active=true
 lnd.tor.socks=127.0.0.1:9050
 lnd.tor.control=localhost:9051
-lnd.tor.password=vq67uSdZPzXFncl3oF48pIflCoR3wCQFhD66f5vSWd
+lnd.tor.password=dontusethisyouwillbehacked
 lnd.tor.v3=true
 ```
 
