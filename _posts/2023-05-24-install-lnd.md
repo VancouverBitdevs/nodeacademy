@@ -130,7 +130,8 @@ git checkout v0.10.0-alpha
 We can now install the software with
 
 ```shell
-make go-install go-install-cli
+make install
+make go-install-cli
 ```
 
 We can verify that `litd` is properly installed on our machine with:

@@ -25,7 +25,7 @@ project_entries:
     desc: Set up a virtual private server for a Lightning node in the cloud.
 
   - title: Chapter 2
-    url: overview-post
+    url: linux
     desc: Introduction to the command line.
 
   - title: Chapter 3A
