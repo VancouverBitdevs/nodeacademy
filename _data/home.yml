@@ -54,9 +54,8 @@ project_entries:
     highlight: Objective
 
   - title: Chapter 6
-    url: overview-post
+    url: connect-lnd
     desc: Connect to Zeus and Lightning Terminal
-    highlight: In progress
     
   - title: Chapter 7
     url: overview-post
