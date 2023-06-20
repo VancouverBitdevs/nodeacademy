@@ -59,7 +59,7 @@ make install
 
 ## Configure Tor
 
-To make use of Tor with LND, we best give LND access to the Tor daemon and handle all the details itself. For that we will need to generate another password. Use your password manager, although you won't have to record this password or retain it after this configuration.
+To make use of Tor with LND, we best give LND access to the Tor daemon and handle all the details itself. For that we will need to generate another password. Use your password manager and retain it until you are done this guide. You won't have to record this password or retain it after this configuration.
 
 ```shell
 tor --hash-password dontusethisyouwillbehacked
