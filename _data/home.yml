@@ -58,7 +58,7 @@ project_entries:
     desc: Connect to Zeus and Lightning Terminal
     
   - title: Chapter 7
-    url: overview-post
+    url: maintenance
     desc: Maintain your node
     highlight: In progress
     
