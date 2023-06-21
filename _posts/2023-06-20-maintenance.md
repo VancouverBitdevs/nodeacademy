@@ -220,7 +220,7 @@ In the future, if we need to stop Bitcoin Core manually we can do that with:
 sudo systemctl stop bitcoind.service
 ```
 
-And stop it again with:
+And start it again with:
 
 ```shell
 sudo systemctl start bitcoind.service
