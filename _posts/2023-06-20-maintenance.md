@@ -102,7 +102,7 @@ We can now start LND again, unlock it and check the versioning.
 ```shell
 nohup litd &
 lncli unlock
-litcli ---version
+litcli --version
 ```
 
 You should see `litcli version 0.10.1-alpha commit=v0.10.1-alpha` as the output. Success!
