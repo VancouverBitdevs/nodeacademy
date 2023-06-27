@@ -188,6 +188,15 @@ MemoryDenyWriteExecute=true
 WantedBy=multi-user.target
 ```
 
+If you are running with a specific user (not ubuntu) kake sure to update the following lines with your desired user to run this service:
+
+```
+                            -conf=/home/your-user/.bitcoin/bitcoin.conf
+# Run as your-user:your-user
+User=your-user
+Group=your-user
+```
+
 We can save the editor with `Ctrl` + `O` and exit with `Ctrl` + `X`.
 
 To activate this file, we run:
