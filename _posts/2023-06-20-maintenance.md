@@ -93,7 +93,7 @@ To upgrade LND, we are going to navigate to our `lightning-terminal` directory, 
 ```shell
 cd ~/git/lightning-terminal
 git pull
-git checkout v0.10.1-alpha
+git checkout v0.10.2-alpha
 make go-install go-install-cli
 ```
 
