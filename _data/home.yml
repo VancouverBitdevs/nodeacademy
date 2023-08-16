@@ -60,7 +60,10 @@ project_entries:
   - title: Chapter 7
     url: maintenance
     desc: Maintain your node
-    highlight: In progress
+
+  - title: Chapter 8
+    url: disaster
+    desc: Prepare for disaster
     
 resources:
   - title: Builder's Guide
