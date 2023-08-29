@@ -65,6 +65,10 @@ project_entries:
     url: disaster
     desc: Prepare for disaster
     
+  - title: Chapter 9
+    url: lnbits
+    desc: Install LNbits
+    
 resources:
   - title: Builder's Guide
     url: https://docs.lightning.engineering/
