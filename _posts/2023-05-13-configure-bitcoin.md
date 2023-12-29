@@ -36,9 +36,9 @@ We can use the following sample configuration file, adjust it to our needs and p
 # The directory we want to use to store the blockchain. If you are using a single drive, remove this setting. Otherwise, specify the path of your external drive.
 datadir=/mnt/bitcoin
 
-# We prune the blockchain to 16GB so that it fits on our 25GB drive.
-# The other 9GB will be free to be taken by other data of Bitcoin Core.
-prune=16000
+# We prune the blockchain to 40GB so that it fits on our 50GB drive.
+# The other 10GB will be free to be taken by other data of Bitcoin Core, such as the UTXO set.
+prune=40000
 ```
 
 We can now save this file (`Ctrl` + `O`) + (`Enter`) to confirm filename and exit (`Ctrl` + `X`) the editor.
