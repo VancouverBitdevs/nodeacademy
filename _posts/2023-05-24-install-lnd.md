@@ -33,7 +33,7 @@ Unlike with Bitcoin Core, we will not need to install many dependencies, and the
 We will need to install nodejs and yarn.
 
 ```shell
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 ```
 
@@ -47,7 +47,7 @@ We can find the latest version of go on its [official website](https://go.dev/dl
 
 ```shell
 cd ~/Downloads
-wget https://go.dev/dl/go1.20.4.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
 ```
 Note: if ~/Downloads folder does not exist on your machine create a folder and try again
 ```shell
@@ -57,7 +57,7 @@ mkdir ~/Downloads
 We are now going to unpack this repository with the command:
 
 ```shell
-sudo tar -C /usr/local -xzf go1.20.4.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
 ```
 
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
@@ -81,28 +81,14 @@ We will once again save our edits with `Ctrl` + `O` and `Enter`, then exit the e
 We can now check our installation.
 
 ```shell
+bash
+go version
+```
+```shell
 go version
 ```
 
-The output should read: `go version go1.20.4 linux/amd64`
-
-Note: Changes made to a profile file may not apply until the next time you log into your computer.
-If you get the following error:
-
-```
-$ go version
-Command 'go' not found, but can be installed with:
-sudo snap install go         # version 1.20.4, or
-sudo apt  install golang-go  # version 2:1.18~0ubuntu2
-sudo apt  install gccgo-go   # version 2:1.18~0ubuntu2
-See 'snap info go' for additional versions.
-```
-Type:
-
-```shell
-exit
-```
-Then SSH into your machine again.
+The output should read: `go version go1.22.2 linux/amd64`
 
 ### Downloading the source code
 
@@ -124,7 +110,7 @@ cd lightning-terminal
 Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.10.0`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
-git checkout v0.10.0-alpha
+git checkout v0.12.4-alpha
 ```
 
 We can now install the software with
@@ -140,7 +126,7 @@ We can verify that `litd` is properly installed on our machine with:
 litcli --version
 ```
 
-It should output `litcli version 0.10.0-alpha commit=v0.10.0-alpha`.
+It should output `litcli version 0.12.4-alpha commit=v0.12.4-alpha-dirty`.
 
 **Congratulations, you now have LND, Pool, Loop, Faraday and litd installed on your machine! We can continue to [the next guide](/configure-lnd) to configure it.**
 
@@ -155,19 +141,19 @@ cd ~/Downloads
 Next we are going to download the correct binary. On the [project's website](https://github.com/lightninglabs/lightning-terminal/releases) we can find the available software for Windows, Mac OS X and Linux. If you are running your node on a Raspberry Pi, choose the `ARM Linux` link and copy it. Most others will use the `linux-amd64[...].tar.gz` link. In Linux, we will download it like this. Replace the filename with your filename if you are using a different version, or a different operating system.
 
 ```shell
-wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.10.0-alpha/lightning-terminal-linux-amd64-v0.10.0-alpha.tar.gz
+wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.12.4-alpha/lightning-terminal-linux-amd64-v0.12.4-alpha.tar.gz
 ```
 
 This is a compressed file, similar to a `.zip` file or `.rar` file. We can unpack it with the following command:
 
 ```shell
-tar xvf lightning-terminal-linux-amd64-v0.10.0-alpha.tar.gz
+tar xvf lightning-terminal-linux-amd64-v0.12.4-alpha.tar.gz
 ```
 
 This will place our binaries into a new folder. We are going to move it somwhere where our system can permanently find it.
 
 ```shell
-sudo mv lightning-terminal-linux-amd64-v0.10.0-alpha/* /usr/local/bin/
+sudo mv lightning-terminal-linux-amd64-v0.12.4-alpha/* /usr/local/bin/
 ```
 
 We can verify that `litd` is properly installed on our machine with:
@@ -176,6 +162,6 @@ We can verify that `litd` is properly installed on our machine with:
 litcli --version
 ```
 
-It should output `litcli version 0.10.0-alpha commit=v0.10.0-alpha`.
+It should output `litcli version 0.12.4-alpha commit=v0.12.4-alpha-dirty`.
 
 **Congratulations, you now have LND, Pool, Loop, Faraday and litd installed on your machine! We can continue to [the next guide](/configure-lnd) to configure it.**
