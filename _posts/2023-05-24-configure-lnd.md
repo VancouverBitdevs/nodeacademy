@@ -65,7 +65,6 @@ lnd.alias=nodeacademy
 lnd.color=#FF0000
 
 # Bitcoin Core Options
-lnd.bitcoin.active=1
 lnd.bitcoin.mainnet=1
 lnd.bitcoin.node=bitcoind
 lnd.bitcoind.rpchost=127.0.0.1
