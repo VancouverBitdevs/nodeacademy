@@ -69,6 +69,10 @@ project_entries:
     url: lnbits
     desc: Install LNbits
     
+  - title: Chaper 10
+    url: geyser
+    desc: Connect your node to Geyser
+    
 resources:
   - title: Builder's Guide
     url: https://docs.lightning.engineering/
