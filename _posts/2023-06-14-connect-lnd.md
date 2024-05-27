@@ -4,17 +4,17 @@ author: liongrass
 tags: [academy, lnd]
 ---
 
-## Connect LND
+# Connect LND
 
 Today we will check back with our nodes, make sure everything is running as expected. We will also adjust our firewall and connect to the litd interface for the first time, before we connect to Lightning Terminal, Zeus and Alby.
 
-### Useful resources:
+## Useful resources:
 
 - [Lightning Terminal Documentation](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal)
 - [Zeus](https://zeusln.app/)
 - [Alby](https://getalby.com/)
 
-### Make sure LND is running and synced
+## Check on your node
 
 As we SSH into our server, we are first going to make sure everything is running smoothly. 
 
@@ -26,7 +26,7 @@ The part of the output we're looking for tells us that we are synced to the bloc
 
 ```
     "synced_to_chain": true,
-    "synced_to_graph": false,
+    "synced_to_graph": true,
 ```
 
 
@@ -109,3 +109,45 @@ Lightning Terminal has the ability to create custodial sub account on your node.
 In the litd UI under "Lightning Node Connect", give your connection a name and choose "Custom". On the left, choose "Custodial Account", add a balance (e.g. 1 sat) and hit "Submit". You can share the connection phrase or the QR code with your friend. They can then start using your node to receive and send payments without seeing your balance or transactions.
 
 ![Custom permissions](/images/custom.png)
+
+## Alternative: Connect directly to your node from Zeus
+
+Lightning Node Connect is a convenient tool to connect your node to Zeus and Alby, or to manage your node using Lightning Terminal. It excels especially in comparison to connections over Tor.
+
+If your node is available over a clearnet IP, then connecting directly from Zeus may provide a significantly superior experience.
+
+### Get your macaroon
+
+We'll need our node's macaroon. You can for example use the admin macaroon from LND and print it in hex.
+
+`xxd -p -c 256 ~/.lnd/data/chain/bitcoin/mainnet/admin.macarron | tr -d '\n'`
+
+If you would like to make a custodial sub account with a 1 satoshi balance, you may this command:
+
+`litcli accounts create 1 --save_to ~/zeus.macaroon`
+
+Then print it in hex format:
+
+`xxd -p -c 256 ~/zeus.macarron | tr -d '\n'`
+
+It is also possible to create a macaroon for an existing LND Account. [Follow this guide if you want to do that](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/accounts#docs-internal-guid-d0641bc1-7fff-0871-8cd4-de3e495890fc)
+
+### Open your firewall
+
+To be able to receive connections over the REST interface, we will need to open port 8080 on our node.
+
+`sudo ufw allow 8080`
+
+### Connect Zeus
+
+In Zeus, go into settings, then click on your existing node name, then on the big `+` symbol on the top right.
+
+Give your node a nickname, choose `LND (REST)` as the node interface.
+
+Your host is your IP address.
+
+Under "macaroon", enter your macaroon in hex format as obtained in the step above.
+
+Under "REST port", enter `8080`.
+
+You should be able to save your node configuration and connect right away.
