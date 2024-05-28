@@ -138,6 +138,24 @@ To be able to receive connections over the REST interface, we will need to open 
 
 `sudo ufw allow 8080`
 
+### Update lit.conf to listen on port 8080
+
+Update lit.conf to be able to listen to rest interface on port 8080
+
+```shell
+nano ~/.lit/lit.conf
+```
+Use the arrow keys to navigate to the end of the file then add
+
+lnd.restlisten=0.0.0.0:8080
+
+Press CRTL-O to save and CTRL-X to exit
+
+Restart litd service by typing 
+```shell
+sudo systemctl restart litd.service
+```
+
 ### Connect Zeus
 
 In Zeus, go into settings, then click on your existing node name, then on the big `+` symbol on the top right.
@@ -149,5 +167,7 @@ Your host is your IP address.
 Under "macaroon", enter your macaroon in hex format as obtained in the step above.
 
 Under "REST port", enter `8080`.
+
+Leave 'Use Tor' and Certificate verification `unchecked` and click save node config
 
 You should be able to save your node configuration and connect right away.
