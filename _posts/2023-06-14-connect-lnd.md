@@ -147,7 +147,7 @@ nano ~/.lit/lit.conf
 ```
 Use the arrow keys to navigate to the end of the file then add
 
-lnd.restlisten=0.0.0.0:8080
+`lnd.restlisten=0.0.0.0:8080`
 
 Press CRTL-O to save and CTRL-X to exit
 
