@@ -6,7 +6,7 @@ tags: [academy, bitcoin]
 
 ## Installing and syncing Bitcoin Core
 
-Bitcoin Core, also known by its process name `bitcoind`, is by far the most popular implementation of a Bitcoin node. It is written in C++ and as of today available as version 24.1. It is a decendant of the "original" Bitcoin implementation, released in January 2009 by Satoshi Nakamoto. The source code can be found on the project's website [bitcoincore.org](https://bitcoincore.org/) as well as the [Github repository.](https://github.com/bitcoin/bitcoin).
+Bitcoin Core, also known by its process name `bitcoind`, is by far the most popular implementation of a Bitcoin node. It is written in C++ and as of today available as version 27. It is a decendant of the "original" Bitcoin implementation, released in January 2009 by Satoshi Nakamoto. The source code can be found on the project's website [bitcoincore.org](https://bitcoincore.org/) as well as the [Github repository.](https://github.com/bitcoin/bitcoin).
 
 ### Useful resources:
 
@@ -54,10 +54,10 @@ cd bitcoin
 
 ### Compiling Bitcoin Core
 
-Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `24.1`. You can check the latest version on the [release page of the project](https://github.com/bitcoin/bitcoin/releases).
+Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `27`. You can check the latest version on the [release page of the project](https://github.com/bitcoin/bitcoin/releases).
 
 ```shell
-git checkout v24.1
+git checkout v27.0
 ```
 
 Now we will generate a "makefile". This makefile contains information about our system and its configuration, as well as the limitations and features of our computer. At this step we could theoretically define a long list of potential configuration options, but for the purpose of our node we will stick with the defaults. Be aware that for this command to work, you will need to be in the right directory, which if you followed the steps above, you can always find at `~/git/bitcoin`
@@ -93,19 +93,19 @@ cd ~/Downloads
 Next we are going to download the correct binary. On the [project's website](https://bitcoincore.org/en/download/) we can find the available software for Windows, Mac OS X and Linux. If you are running your node on a Raspberry Pi, choose the `ARM Linux` link and copy it. All others will use the `Linux (tgz)` link. In Linux, we will download it like this. Replace the filename with your filename if you are using a different version, or a different operating system.
 
 ```shell
-wget https://bitcoincore.org/bin/bitcoin-core-24.1/bitcoin-24.1-x86_64-linux-gnu.tar.gz
+wget https://bitcoincore.org/bin/bitcoin-core-27.0/bitcoin-27.0-x86_64-linux-gnu.tar.gz
 ```
 
 This is a compressed file, similar to a `.zip` file or `.rar` file. We can unpack it with the following command:
 
 ```shell
-tar xvf bitcoin-24.1-x86_64-linux-gnu.tar.gz
+tar xvf bitcoin-27.0-x86_64-linux-gnu.tar.gz
 ```
 
 This will place our binaries into a new folder. We are going to move it somwhere where our system can permanently find it.
 
 ```shell
-sudo mv bitcoin-24.1/bin/* /usr/local/bin/
+sudo mv bitcoin-27.0/bin/* /usr/local/bin/
 ```
 
 **Congratulations, you now have Bitcoin Core installed on your machine! We can continue to [the next guide](/configure-bitcoin) to configure it.**

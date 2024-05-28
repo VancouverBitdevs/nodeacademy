@@ -64,11 +64,6 @@ bitcoin-core.daemon --daemon
 We can now follow the log files with this command. Adjust the path if your bitcoin directory is elsewhere:
 
 ```
-tail -f ~/mnt/bitcoin/debug.log
-```
-NOTE: if the log tail fails, follow this troubleshooting procedure (for Lunanode config)
-```
-cd ~
 tail -f /mnt/bitcoin/debug.log
 ```
 
