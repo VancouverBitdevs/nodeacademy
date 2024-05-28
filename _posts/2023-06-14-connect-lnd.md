@@ -120,7 +120,7 @@ If your node is available over a clearnet IP, then connecting directly from Zeus
 
 We'll need our node's macaroon. You can for example use the admin macaroon from LND and print it in hex.
 
-`xxd -p -c 256 ~/.lnd/data/chain/bitcoin/mainnet/admin.macarron | tr -d '\n'`
+`xxd -p -c 256 ~/.lnd/data/chain/bitcoin/mainnet/admin.macaroon | tr -d '\n'`
 
 If you would like to make a custodial sub account with a 1 satoshi balance, you may this command:
 
@@ -128,7 +128,7 @@ If you would like to make a custodial sub account with a 1 satoshi balance, you 
 
 Then print it in hex format:
 
-`xxd -p -c 256 ~/zeus.macarron | tr -d '\n'`
+`xxd -p -c 256 ~/zeus.macaroon | tr -d '\n'`
 
 It is also possible to create a macaroon for an existing LND Account. [Follow this guide if you want to do that](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/accounts#docs-internal-guid-d0641bc1-7fff-0871-8cd4-de3e495890fc)
 
