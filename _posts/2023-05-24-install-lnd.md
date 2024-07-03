@@ -43,7 +43,7 @@ sudo npm install --global yarn
 
 ### Install go
 
-We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.20.4`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
+We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.2`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
 
 ```shell
 cd ~/Downloads
