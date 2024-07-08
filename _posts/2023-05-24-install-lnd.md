@@ -41,13 +41,22 @@ sudo apt-get install -y nodejs
 sudo npm install --global yarn
 ```
 
-### Install go
+### Install/Upgrade go
 
-We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.2`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
+if GO is already installed and needs to be upgraded, do this procedure to find out installation folder, make sure the path on the third like matches the output of which go command.
+```shell
+go version
+
+which go
+
+sudo rm -rf /usr/local/go
+```
+
+We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.5`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
 
 ```shell
 cd ~/Downloads
-wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
 ```
 Note: if ~/Downloads folder does not exist on your machine create a folder and try again
 ```shell
@@ -57,7 +66,7 @@ mkdir ~/Downloads
 We are now going to unpack this repository with the command:
 
 ```shell
-sudo tar -C /usr/local -xzf go1.22.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.22.5.linux-amd64.tar.gz
 ```
 
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
@@ -88,7 +97,7 @@ go version
 go version
 ```
 
-The output should read: `go version go1.22.2 linux/amd64`
+The output should read: `go version go1.22.5 linux/amd64`
 
 ### Downloading the source code
 
@@ -107,10 +116,10 @@ cd lightning-terminal
 
 ### Compiling litd
 
-Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.10.0`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
+Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.13.1`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
-git checkout v0.12.4-alpha
+git checkout v0.13.1-alpha
 ```
 
 We can now install the software with
@@ -126,7 +135,7 @@ We can verify that `litd` is properly installed on our machine with:
 litcli --version
 ```
 
-It should output `litcli version 0.12.4-alpha commit=v0.12.4-alpha-dirty`.
+It should output `litcli version 0.13.1-alpha commit=v0.13.1-alpha`.
 
 **Congratulations, you now have LND, Pool, Loop, Faraday and litd installed on your machine! We can continue to [the next guide](/configure-lnd) to configure it.**
 
