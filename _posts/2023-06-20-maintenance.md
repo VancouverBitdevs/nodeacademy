@@ -93,7 +93,7 @@ To upgrade LND, we are going to navigate to our `lightning-terminal` directory, 
 ```shell
 cd ~/git/lightning-terminal
 git pull
-git checkout v0.10.2-alpha
+git checkout v0.13.1-alpha
 make go-install go-install-cli
 ```
 
@@ -105,7 +105,7 @@ lncli unlock
 litcli --version
 ```
 
-You should see `litcli version 0.10.1-alpha commit=v0.10.1-alpha` as the output. Success!
+You should see `litcli version 0.13.1-alpha commit=v0.13.1-alpha` as the output. Success!
 
 ### Register Bitcoin Core with systemd
 
