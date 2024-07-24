@@ -52,11 +52,11 @@ which go
 sudo rm -rf /usr/local/go
 ```
 
-We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.5`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
+We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.21.12`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
 
 ```shell
 cd ~/Downloads
-wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.21.12.linux-amd64.tar.gz
 ```
 Note: if ~/Downloads folder does not exist on your machine create a folder and try again
 ```shell
@@ -66,7 +66,7 @@ mkdir ~/Downloads
 We are now going to unpack this repository with the command:
 
 ```shell
-sudo tar -C /usr/local -xzf go1.22.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.21.12.linux-amd64.tar.gz
 ```
 
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
@@ -97,7 +97,7 @@ go version
 go version
 ```
 
-The output should read: `go version go1.22.5 linux/amd64`
+The output should read: `go version go1.21.12/amd`
 
 ### Downloading the source code
 
