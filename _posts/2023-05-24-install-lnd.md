@@ -33,7 +33,7 @@ Unlike with Bitcoin Core, we will not need to install many dependencies, and the
 We will need to install nodejs and yarn.
 
 ```shell
-curl -fsSL https://deb.nodesource.com/setup_21.x | sudo -E bash - &&\
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
 sudo apt-get install -y nodejs
 ```
 
@@ -56,7 +56,7 @@ We can find the latest version of go on its [official website](https://go.dev/dl
 
 ```shell
 cd ~/Downloads
-wget https://go.dev/dl/go1.22.5.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
 ```
 Note: if ~/Downloads folder does not exist on your machine create a folder and try again
 ```shell
@@ -66,7 +66,7 @@ mkdir ~/Downloads
 We are now going to unpack this repository with the command:
 
 ```shell
-sudo tar -C /usr/local -xzf go1.22.5.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
 ```
 
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
@@ -97,7 +97,7 @@ go version
 go version
 ```
 
-The output should read: `go version go1.22.5 linux/amd64`
+The output should read: `go version go1.23.2 linux/amd64`
 
 ### Downloading the source code
 
@@ -119,7 +119,7 @@ cd lightning-terminal
 Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.13.1`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
-git checkout v0.13.1-alpha
+git checkout v0.13.4-alpha
 ```
 
 We can now install the software with
