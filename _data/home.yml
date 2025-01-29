@@ -80,7 +80,7 @@ resources:
     highlight: LND
 
   - title: Plebnet Wiki
-    url: https://plebnet.wiki/wiki/Main_Page
+    url: https://www.plebnetwiki.com/
     desc: The world's largest noderunner community.
     
   - title: BTC Sessions
