@@ -41,19 +41,22 @@ cd ~/git/bitcoin
 git pull
 ```
 
-As a reponse, you should immediately see which _tags_ have been added since you last pulled code from this repository.
+As a response, you should immediately see which _tags_ have been added since you last pulled code from this repository.
 
 ```
- * [new tag]             v22-final  -> v22-final
- * [new tag]             v23.2      -> v23.2
- * [new tag]             v24.1      -> v24.1
- * [new tag]             v25.0      -> v25.0
+   837c5c7fd8..7e1eca4882  29.x       -> origin/29.x
+ * [new branch]            30.x       -> origin/30.x
+   f5f853d952..edb871cba2  master     -> origin/master
+ * [new tag]               v29.2rc1   -> v29.2rc1
+ * [new tag]               v29.1      -> v29.1
+ * [new tag]               v29.1rc2   -> v29.1rc2
+ * [new tag]               v30.0rc1   -> v30.0rc1
 ```
 
 This tells us that since we last visited the code, there are new versions available. We are going to go forward with upgrading to `v25.0`
 
 ```shell
-git checkout v25.0
+git checkout v29.1
 ```
 
 You might see an error like `error: Your local changes to the following files would be overwritten by checkout:`. In this case, you can stash all changes with:
@@ -62,7 +65,7 @@ You might see an error like `error: Your local changes to the following files wo
 git stash
 ```
 
-We can try `git checkout v25.0` again and should see something like the following:
+We can try `git checkout v29.1` again and should see something like the following:
 
 ```
 Previous HEAD position was b3f866a8d Merge bitcoin/bitcoin#26647: 24.0.1 final changes
@@ -72,8 +75,9 @@ HEAD is now at 8105bce5b Merge bitcoin/bitcoin#27686: 25.0 Final Changes
 As we have built Bitcoin on this machine before, we are going to install it simply with:
 
 ```shell
-make
-sudo make install
+cmake -B build -DWITH_ZMQ=ON
+cmake --build build 
+sudo cmake --install build
 ```
 
 We will now stop Bitcoin Core and start it again, then check if we are on the correct version.
@@ -84,7 +88,7 @@ bitcoind --daemon
 bitcoin-cli --getinfo
 ```
 
-We should see the version now at v25.0: `Version: 250000`
+We should see the version now at v29.1: `Version: 290000`
 
 ### Upgrade LND
 
@@ -93,19 +97,19 @@ To upgrade LND, we are going to navigate to our `lightning-terminal` directory, 
 ```shell
 cd ~/git/lightning-terminal
 git pull
-git checkout v0.13.1-alpha
+git checkout v0.15.2-alpha
 make go-install go-install-cli
 ```
 
 We can now start LND again, unlock it and check the versioning.
 
 ```shell
-nohup litd &
+nohup litd > /dev/null 2> ~/.lnd/err.log &
 lncli unlock
-litcli --version
+litd --version
 ```
 
-You should see `litcli version 0.13.1-alpha commit=v0.13.1-alpha` as the output. Success!
+You should see `litd version 0.15.2-alpha commit=v0.15.2-alpha commit_hash=911f8cae52670332fe46affd35ff18458ebd5ffb` as the output. Success!
 
 ### Register Bitcoin Core with systemd
 

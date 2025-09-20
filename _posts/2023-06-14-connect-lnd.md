@@ -56,7 +56,7 @@ If you have to add this line, don't forget to restart LND and unlock it!
 
 ```shell
 lncli stop
-nohup litd &
+nohup litd > /dev/null 2> ~/.lnd/err.log &
 lncli unlock
 ```
 
@@ -89,6 +89,8 @@ Here, we can click on Terminal, confirm our pairing phrase, set a password and c
 We can use this interface to see our channels and their status, incoming and outgoing payments, our balance, open channels, find other nodes, perform Loops, buy and sell channels on Pool or set our channel fees.
 
 ### Connect to Zeus
+
+Zeus is a mobile Lightning wallet for iOS and Android. We recommend connecting to Zeus over LNC if your node is behind Tor. If your node is accessible over clearnet, we recommend connecting over REST instead (see instructions below).
 
 We go back to the `litd` interface, where we find "Lightning Node Connect" on the left hand side.
 

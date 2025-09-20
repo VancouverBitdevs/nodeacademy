@@ -8,7 +8,7 @@ tags: [academy, lnd]
 
 The Lightning Network Daemon (LND) is a Lightning Network node implementation written in go. It is by far the most popular routing node on the Lightning Network today. You can find it's source code at [github.com/lightningnetwork/lnd](https://github.com/lightningnetwork/lnd).
 
-Litd is a software bundle that includes LND, as well as Lightning Lab's Lightning Network tools [Loop](https://docs.lightning.engineering/lightning-network-tools/loop), [Pool](https://docs.lightning.engineering/lightning-network-tools/pool), [Faraday](https://docs.lightning.engineering/lightning-network-tools/faraday) and in the future, [Taproot Assets](https://docs.lightning.engineering/lightning-network-tools/taproot-assets). Through `litd` we can access other useful features such as [LND Accounts](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/accounts), [Lightning Node Connect](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/lightning-node-connect) and [Lightning Terminal](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/connect).
+Litd is a software bundle that includes LND, as well as Lightning Lab's Lightning Network tools [Loop](https://docs.lightning.engineering/lightning-network-tools/loop), [Pool](https://docs.lightning.engineering/lightning-network-tools/pool), [Faraday](https://docs.lightning.engineering/lightning-network-tools/faraday) and [Taproot Assets](https://docs.lightning.engineering/lightning-network-tools/taproot-assets). Through `litd` we can access other useful features such as [LND Accounts](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/accounts), [Lightning Node Connect](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/lightning-node-connect) and [Lightning Terminal](https://docs.lightning.engineering/lightning-network-tools/lightning-terminal/connect).
 
 In this section, we are going to install the `litd` software bundle to give us easy access to all of the features we need without going through multiple installations. Litd is fully open-source.
 
@@ -30,16 +30,34 @@ Unlike with Bitcoin Core, we will not need to install many dependencies, and the
 
 ### Install dependencies
 
-We will need to install nodejs and yarn.
+We will need to install [nodejs and yarn](https://nodejs.org/en/download/).
 
 ```shell
-curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
-sudo apt-get install -y nodejs
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+\. "$HOME/.nvm/nvm.sh"
+nvm install 22
 ```
 
+We can then verify that nodejs is installed by running:
+
 ```shell
-sudo npm install --global yarn
+node -v
 ```
+
+Which should show something like: `v22.19.0`
+Enabling yarn is then as easy as:
+
+```shell
+corepack enable yarn
+```
+
+You can verify yarn is installed by running:
+
+```shell
+yarn -v
+```
+
+The first time you do that, you will be asked to confirm the download. Enter `Y` and press `Enter` to continue.
 
 ### Install/Upgrade go
 
@@ -56,7 +74,7 @@ We can find the latest version of go on its [official website](https://go.dev/dl
 
 ```shell
 cd ~/Downloads
-wget https://go.dev/dl/go1.23.2.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.25.1.linux-amd64.tar.gz
 ```
 Note: if ~/Downloads folder does not exist on your machine create a folder and try again
 ```shell
@@ -66,7 +84,7 @@ mkdir ~/Downloads
 We are now going to unpack this repository with the command:
 
 ```shell
-sudo tar -C /usr/local -xzf go1.23.2.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1.25.1.linux-amd64.tar.gz
 ```
 
 Next we will have to make sure our machine learns about where to find the golang code, and where to place programs that we will install with go. To do that, we are going to edit the `.bashrc` file.
@@ -93,11 +111,8 @@ We can now check our installation.
 bash
 go version
 ```
-```shell
-go version
-```
 
-The output should read: `go version go1.23.2 linux/amd64`
+The output should read: `go version go1.25.1 linux/amd64`
 
 ### Downloading the source code
 
@@ -119,7 +134,7 @@ cd lightning-terminal
 Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.13.1`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
-git checkout v0.13.4-alpha
+git checkout v0.15.2-alpha
 ```
 
 We can now install the software with
@@ -132,10 +147,10 @@ make go-install-cli
 We can verify that `litd` is properly installed on our machine with:
 
 ```shell
-litcli --version
+litd --version
 ```
 
-It should output `litcli version 0.13.1-alpha commit=v0.13.1-alpha`.
+It should output `litd version 0.15.2-alpha commit=v0.15.2-alpha commit_hash=911f8cae52670332fe46affd35ff18458ebd5ffb`.
 
 **Congratulations, you now have LND, Pool, Loop, Faraday and litd installed on your machine! We can continue to [the next guide](/configure-lnd) to configure it.**
 
@@ -150,27 +165,64 @@ cd ~/Downloads
 Next we are going to download the correct binary. On the [project's website](https://github.com/lightninglabs/lightning-terminal/releases) we can find the available software for Windows, Mac OS X and Linux. If you are running your node on a Raspberry Pi, choose the `ARM Linux` link and copy it. Most others will use the `linux-amd64[...].tar.gz` link. In Linux, we will download it like this. Replace the filename with your filename if you are using a different version, or a different operating system.
 
 ```shell
-wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.12.4-alpha/lightning-terminal-linux-amd64-v0.12.4-alpha.tar.gz
+wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz
 ```
 
 This is a compressed file, similar to a `.zip` file or `.rar` file. We can unpack it with the following command:
 
 ```shell
-tar xvf lightning-terminal-linux-amd64-v0.12.4-alpha.tar.gz
+tar xvf lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz
 ```
 
-This will place our binaries into a new folder. We are going to move it somwhere where our system can permanently find it.
+As we don't want to blindly trust the binaries being legit, we are going to verify them using GPG. To do that, we are going to add the GPG keys of the maintainer. We only have to do this once, as we upgrade later we will no longer have to download the key.
 
 ```shell
-sudo mv lightning-terminal-linux-amd64-v0.12.4-alpha/* /usr/local/bin/
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 187F6ADD93AE3B0CF335AA6AB984570980684DCC
+```
+
+Next, we are going to download the manifest and the signature and check whether the manifest is properly signed.
+
+```shell
+cd ~/Downloads
+wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/manifest-v0.15.2-alpha.txt
+wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/manifest-ViktorTigerstrom-v0.15.2-alpha.sig
+gpg --verify manifest-ViktorTigerstrom-v0.15.2-alpha.sig manifest-v0.15.2-alpha.txt
+```
+
+We should get the result: `gpg: Good signature from "Viktor Tigerström <vtigerstrom@gmail.com>"`
+
+Finally, we will have to check whether the SHA256 hash of the binaries we downloaded matches what is signed in the manifest.
+
+```shell
+cd ~/Downloads
+echo "$(cat manifest-v0.15.2-alpha.txt) lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz" | sha256sum -c --ignore-missing
+```
+
+You should see `OK` printed behind every file:
+
+```shell
+lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/frcli: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/litcli: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/litd: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/lncli: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/loop: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/pool: OK
+lightning-terminal-linux-amd64-v0.15.2-alpha/tapcli: OK
+```
+
+Now we will place our binaries into a new folder. We are going to move it somewhere where our system can permanently find it.
+
+```shell
+sudo mv lightning-terminal-linux-amd64-v0.15.2-alpha/* /usr/local/bin/
 ```
 
 We can verify that `litd` is properly installed on our machine with:
 
 ```shell
-litcli --version
+litd --version
 ```
 
-It should output `litcli version 0.12.4-alpha commit=v0.12.4-alpha-dirty`.
+It should output `litd version 0.15.2-alpha commit=v0.15.2-alpha commit_hash=911f8cae52670332fe46affd35ff18458ebd5ffb`.
 
 **Congratulations, you now have LND, Pool, Loop, Faraday and litd installed on your machine! We can continue to [the next guide](/configure-lnd) to configure it.**
