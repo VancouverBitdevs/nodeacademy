@@ -4,7 +4,7 @@ author: liongrass
 tags: [resources, bitcoin]
 ---
 
-Generated with Bitcoin Core 24.0.1
+Generated with Bitcoin Core 29.0
 
 ```
 ##
@@ -25,14 +25,20 @@ Generated with Bitcoin Core 24.0.1
 # message)
 #alertnotify=<cmd>
 
+# For backwards compatibility, treat an unused bitcoin.conf file in the
+# datadir as a warning, not an error.
+#allowignoredconf=1
+
 # If this block is in the chain assume that it and its ancestors are valid
 # and potentially skip their script verification (0 to verify all,
 # default:
-# 00000000000000000009c97098b5295f7e5f183ac811fb5d1534040adb93cabd,
-# testnet:
-# 0000000000000004877fa2d36316398528de4f347df2f8a96f76613a298ce060,
+# 00000000000000000001b658dd1120e82e66d2790811f89ede9742ada3ed6d77,
+# testnet3:
+# 00000000000003fc7967410ba2d0a8a8d50daedc318d43e8baf1a9782c236a57,
+# testnet4:
+# 0000000000003ed4f08dbdf6f7d6b271a6bcffce25675cb40aa9fa43179a89f3,
 # signet:
-# 000000d1a0e224fa4679d2fb2187ba55431c284fa1b74cbc8cfda866fd4d2c09)
+# 000000895a110f46e59eb82bbc5bfb67fa314656009c295509c21b4999f5180a)
 #assumevalid=<hex>
 
 # Maintain an index of compact filters by block (default: 0, values:
@@ -52,11 +58,16 @@ Generated with Bitcoin Core 24.0.1
 # <datadir>)
 #blocksdir=<dir>
 
-# Whether to reject transactions from network peers. Automatic broadcast
-# and rebroadcast of any transactions from inbound peers is
-# disabled, unless the peer has the 'forcerelay' permission. RPC
-# transactions are not affected. (default: 0)
+# Whether to reject transactions from network peers. Disables automatic
+# broadcast and rebroadcast of transactions, unless the source peer
+# has the 'forcerelay' permission. RPC transactions are not
+# affected. (default: 0)
 #blocksonly=1
+
+# Whether an XOR-key applies to blocksdir *.dat files. The created XOR-key
+# will be zeros for an existing blocksdir or when `-blocksxor=0` is
+# set, and random for a freshly initialized blocksdir. (default: 1)
+#blocksxor=1
 
 # Maintain coinstats index used by the gettxoutsetinfo RPC (default: 0)
 #coinstatsindex=1
@@ -76,14 +87,14 @@ Generated with Bitcoin Core 24.0.1
 # Specify data directory
 #datadir=<dir>
 
-# Maximum database cache size <n> MiB (4 to 16384, default: 450). In
-# addition, unused mempool memory is shared for this cache (see
-# -maxmempool).
+# Maximum database cache size <n> MiB (minimum 4, default: 450). Make sure
+# you have enough RAM. In addition, unused memory allocated to the
+# mempool is shared with this cache (see -maxmempool).
 #dbcache=<n>
 
-# Specify location of debug log file. Relative paths will be prefixed by a
-# net-specific datadir location. (-nodebuglogfile to disable;
-# default: debug.log)
+# Specify location of debug log file (default: debug.log). Relative paths
+# will be prefixed by a net-specific datadir location. Pass
+# -nodebuglogfile to disable writing the log to a file.
 #debuglogfile=<file>
 
 # Specify additional configuration file, relative to the -datadir path
@@ -103,12 +114,18 @@ Generated with Bitcoin Core 24.0.1
 # 336)
 #mempoolexpiry=<n>
 
-# Set the number of script verification threads (-1 to 15, 0 = auto, <0 =
+# Set the number of script verification threads (0 = auto, up to 15, <0 =
 # leave that many cores free, default: 0)
 #par=<n>
 
 # Whether to save the mempool on shutdown and load on restart (default: 1)
 #persistmempool=1
+
+# Whether a mempool.dat file created by -persistmempool or the savemempool
+# RPC will be written in the legacy format (version 1) or the
+# current format (version 2). This temporary option will be removed
+# in the future. (default: 0)
+#persistmempoolv1=1
 
 # Specify pid file. Relative paths will be prefixed by a net-specific
 # datadir location. (default: bitcoind.pid)
@@ -125,27 +142,17 @@ Generated with Bitcoin Core 24.0.1
 # target size in MiB)
 #prune=<n>
 
-# Rebuild chain state and block index from the blk*.dat files on disk.
-# This will also rebuild active optional indexes.
+# If enabled, wipe chain state and block index, and rebuild them from
+# blk*.dat files on disk. Also wipe and rebuild other optional
+# indexes that are active. If an assumeutxo snapshot was loaded,
+# its chainstate will be wiped as well. The snapshot can then be
+# reloaded via RPC.
 #reindex=1
 
-# Rebuild chain state from the currently indexed blocks. When in pruning
-# mode or if blocks on disk might be corrupted, use full -reindex
-# instead. Deactivate all optional indexes before running this.
+# If enabled, wipe chain state, and rebuild it from blk*.dat files on
+# disk. If an assumeutxo snapshot was loaded, its chainstate will
+# be wiped as well. The snapshot can then be reloaded via RPC.
 #reindex-chainstate=1
-
-# Use the experimental syscall sandbox in the specified mode
-# (-sandbox=log-and-abort or -sandbox=abort). Allow only expected
-# syscalls to be used by bitcoind. Note that this is an
-# experimental new feature that may cause bitcoind to exit or crash
-# unexpectedly: use with caution. In the "log-and-abort" mode the
-# invocation of an unexpected syscall results in a debug handler
-# being invoked which will log the incident and terminate the
-# program (without executing the unexpected syscall). In the
-# "abort" mode the invocation of an unexpected syscall results in
-# the entire process being killed immediately by the kernel without
-# executing the unexpected syscall.
-#sandbox=<mode>
 
 # Specify path to dynamic settings data file. Can be disabled with
 # -nosettings. File is written at runtime and not meant to be
@@ -154,12 +161,14 @@ Generated with Bitcoin Core 24.0.1
 # settings.json)
 #settings=<file>
 
+# Execute command immediately before beginning shutdown. The need for
+# shutdown may be urgent, so be careful not to delay it long (if
+# the command doesn't require interaction with the server, consider
+# having it fork into the background).
+#shutdownnotify=<cmd>
+
 # Execute command on startup.
 #startupnotify=<cmd>
-
-# Create new files with system default permissions, instead of umask 077
-# (only effective with disabled wallet functionality)
-#sysperms=1
 
 # Maintain a full transaction index, used by the getrawtransaction rpc
 # call (default: 0)
@@ -191,8 +200,9 @@ Generated with Bitcoin Core 24.0.1
 # Bind to given address and always listen on it (default: 0.0.0.0). Use
 # [host]:port notation for IPv6. Append =onion to tag any incoming
 # connections to that address and port as incoming Tor connections
-# (default: 127.0.0.1:8334=onion, testnet: 127.0.0.1:18334=onion,
-# signet: 127.0.0.1:38334=onion, regtest: 127.0.0.1:18445=onion)
+# (default: 127.0.0.1:8334=onion, testnet3: 127.0.0.1:18334=onion,
+# testnet4: 127.0.0.1:48334=onion, signet: 127.0.0.1:38334=onion,
+# regtest: 127.0.0.1:18445=onion)
 #bind=<addr>[:<port>][=onion]
 
 # If set, then this host is configured for CJDNS (connecting to fc00::/8
@@ -214,7 +224,7 @@ Generated with Bitcoin Core 24.0.1
 #dns=1
 
 # Query for peer addresses via DNS lookup, if low on addresses (default: 1
-# unless -connect used)
+# unless -connect used or -maxconnections=0)
 #dnsseed=1
 
 # Specify your own public address
@@ -226,39 +236,34 @@ Generated with Bitcoin Core 24.0.1
 # Always query for peer addresses via DNS lookup (default: 0)
 #forcednsseed=1
 
-# If set and -i2psam is also set then incoming I2P connections are
-# accepted via the SAM proxy. If this is not set but -i2psam is set
-# then only outgoing connections will be made to the I2P network.
-# Ignored if -i2psam is not set. Listening for incoming I2P
-# connections is done through the SAM proxy, not by binding to a
-# local address and port (default: 1)
+# Whether to accept inbound I2P connections (default: 1). Ignored if
+# -i2psam is not set. Listening for inbound I2P connections is done
+# through the SAM proxy, not by binding to a local address and
+# port.
 #i2pacceptincoming=1
 
 # I2P SAM proxy to reach I2P peers and accept I2P connections (default:
 # none)
 #i2psam=<ip:port>
 
-# Accept connections from outside (default: 1 if no -proxy or -connect)
+# Accept connections from outside (default: 1 if no -proxy, -connect or
+# -maxconnections=0)
 #listen=1
 
 # Automatically create Tor onion service (default: 1)
 #listenonion=1
 
-# Maintain at most <n> connections to peers (default: 125). This limit
-# does not apply to connections manually added via -addnode or the
-# addnode RPC, which have a separate limit of 8.
+# Maintain at most <n> automatic connections to peers (default: 125). This
+# limit does not apply to connections manually added via -addnode
+# or the addnode RPC, which have a separate limit of 8.
 #maxconnections=<n>
 
 # Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)
 #maxreceivebuffer=<n>
 
-# Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)
+# Maximum per-connection memory usage for the send buffer, <n>*1000 bytes
+# (default: 1000)
 #maxsendbuffer=<n>
-
-# Maximum allowed median peer time offset adjustment. Local perspective of
-# time may be influenced by outbound peers forward or backward by
-# this amount (default: 4200 seconds).
-#maxtimeadjustment=1
 
 # Tries to keep outbound traffic under the given target per 24h. Limit
 # does not apply to peers with 'download' permission or blocks
@@ -267,13 +272,17 @@ Generated with Bitcoin Core 24.0.1
 # base while uppercase is 1024 base
 #maxuploadtarget=<n>
 
+# Use PCP or NAT-PMP to map the listening port (default: 0)
+#natpmp=1
+
 # Enable all P2P network activity (default: 1). Can be changed by the
 # setnetworkactive RPC command
 #networkactive=1
 
 # Use separate SOCKS5 proxy to reach peers via Tor onion services, set
-# -noonion to disable (default: -proxy)
-#onion=<ip:port>
+# -noonion to disable (default: -proxy). May be a local file path
+# prefixed with 'unix:'.
+#onion=<ip:port|path>
 
 # Make automatic outbound connections only to network <net> (ipv4, ipv6,
 # onion, i2p, cjdns). Inbound and manual connections are not
@@ -288,15 +297,16 @@ Generated with Bitcoin Core 24.0.1
 # 0)
 #peerbloomfilters=1
 
-# Listen for connections on <port>. Nodes not using the default ports
-# (default: 8333, testnet: 18333, signet: 38333, regtest: 18444)
-# are unlikely to get incoming connections. Not relevant for I2P
-# (see doc/i2p.md).
+# Listen for connections on <port> (default: 8333, testnet3: 18333,
+# testnet4: 48333, signet: 38333, regtest: 18444). Not relevant for
+# I2P (see doc/i2p.md). If set to a value x, the default onion
+# listening port will be set to x+1.
 #port=<port>
 
 # Connect through SOCKS5 proxy, set -noproxy to disable (default:
-# disabled)
-#proxy=<ip:port>
+# disabled). May be a local file path prefixed with 'unix:' if the
+# proxy supports it.
+#proxy=<ip:port|path>
 
 # Randomize credentials for every proxy connection. This enables Tor
 # stream isolation (default: 1)
@@ -304,7 +314,7 @@ Generated with Bitcoin Core 24.0.1
 
 # Connect to a node to retrieve peer addresses, and disconnect. This
 # option can be specified multiple times to connect to multiple
-# nodes.
+# nodes. During startup, seednodes will be tried before dnsseeds.
 #seednode=<ip>
 
 # Specify socket connection timeout in milliseconds. If an initial attempt
@@ -312,12 +322,16 @@ Generated with Bitcoin Core 24.0.1
 # (minimum: 1, default: 5000)
 #timeout=<n>
 
-# Tor control port to use if onion listening enabled (default:
-# 127.0.0.1:9051)
+# Tor control host and port to use if onion listening enabled (default:
+# 127.0.0.1:9051). If no port is specified, the default port of
+# 9051 will be used.
 #torcontrol=<ip>:<port>
 
 # Tor control port password (default: empty)
 #torpassword=<pass>
+
+# Support v2 transport (default: 1)
+#v2transport=1
 
 # Bind to the given address and add permission flags to the peers
 # connecting to it. Use [host]:port notation for IPv6. Allowed
@@ -334,10 +348,11 @@ Generated with Bitcoin Core 24.0.1
 # download,noban,mempool,relay). Can be specified multiple times.
 #whitebind=<[permissions@]addr>
 
-# Add permission flags to the peers connecting from the given IP address
-# (e.g. 1.2.3.4) or CIDR-notated network (e.g. 1.2.3.0/24). Uses
-# the same permissions as -whitebind. Can be specified multiple
-# times.
+# Add permission flags to the peers using the given IP address (e.g.
+# 1.2.3.4) or CIDR-notated network (e.g. 1.2.3.0/24). Uses the same
+# permissions as -whitebind. Additional flags "in" and "out"
+# control whether permissions apply to incoming connections and/or
+# manual (default: incoming only). Can be specified multiple times.
 #whitelist=<[permissions@]IP address or network>
 
 
@@ -440,51 +455,17 @@ Generated with Bitcoin Core 24.0.1
 #walletrbf=1
 
 
-### ZeroMQ notification options
-
-
-# Enable publish hash block in <address>
-#zmqpubhashblock=<address>
-
-# Set publish hash block outbound message high water mark (default: 1000)
-#zmqpubhashblockhwm=<n>
-
-# Enable publish hash transaction in <address>
-#zmqpubhashtx=<address>
-
-# Set publish hash transaction outbound message high water mark (default:
-# 1000)
-#zmqpubhashtxhwm=<n>
-
-# Enable publish raw block in <address>
-#zmqpubrawblock=<address>
-
-# Set publish raw block outbound message high water mark (default: 1000)
-#zmqpubrawblockhwm=<n>
-
-# Enable publish raw transaction in <address>
-#zmqpubrawtx=<address>
-
-# Set publish raw transaction outbound message high water mark (default:
-# 1000)
-#zmqpubrawtxhwm=<n>
-
-# Enable publish hash block and tx sequence in <address>
-#zmqpubsequence=<address>
-
-# Set publish hash sequence message high water mark (default: 1000)
-#zmqpubsequencehwm=<n>
-
-
 ### Debugging/Testing options
 
 
 # Output debug and trace logging (default: -nodebug, supplying <category>
-# is optional). If <category> is not supplied or if <category> = 1,
-# output all debug and trace logging. <category> can be: addrman,
-# bench, blockstorage, cmpctblock, coindb, estimatefee, http, i2p,
-# ipc, leveldb, libevent, mempool, mempoolrej, net, proxy, prune,
-# qt, rand, reindex, rpc, selectcoins, tor, util, validation,
+# is optional). If <category> is not supplied or if <category> is 1
+# or "all", output all debug logging. If <category> is 0 or "none",
+# any other categories are ignored. Other valid values for
+# <category> are: addrman, bench, blockstorage, cmpctblock, coindb,
+# estimatefee, http, i2p, ipc, leveldb, libevent, mempool,
+# mempoolrej, net, proxy, prune, qt, rand, reindex, rpc, scan,
+# selectcoins, tor, txpackages, txreconciliation, validation,
 # walletdb, zmq. This option can be specified multiple times to
 # output multiple categories.
 #debug=<category>
@@ -492,21 +473,21 @@ Generated with Bitcoin Core 24.0.1
 # Exclude debug and trace logging for a category. Can be used in
 # conjunction with -debug=1 to output debug and trace logging for
 # all categories except the specified category. This option can be
-# specified multiple times to exclude multiple categories.
+# specified multiple times to exclude multiple categories. This
+# takes priority over "-debug"
 #debugexclude=<category>
-
-# Print help message with debugging options and exit
-#help-debug=1
 
 # Include IP addresses in debug output (default: 0)
 #logips=1
+
+# Always prepend a category and level (default: 0)
+#loglevelalways=1
 
 # Prepend debug output with name of the originating source location
 # (source file, line number and function name) (default: 0)
 #logsourcelocations=1
 
-# Prepend debug output with name of the originating thread (only available
-# on platforms supporting thread_local) (default: 0)
+# Prepend debug output with name of the originating thread (default: 0)
 #logthreadnames=1
 
 # Prepend debug output with timestamp (default: 1)
@@ -531,7 +512,7 @@ Generated with Bitcoin Core 24.0.1
 
 
 # Use the chain <chain> (default: main). Allowed values: main, test,
-# signet, regtest
+# testnet4, signet, regtest
 #chain=<chain>
 
 # Use the signet chain. Equivalent to -chain=signet. Note that the network
@@ -549,8 +530,13 @@ Generated with Bitcoin Core 24.0.1
 # network seed node(s))
 #signetseednode=1
 
-# Use the test chain. Equivalent to -chain=test.
+# Use the testnet3 chain. Equivalent to -chain=test. Support for testnet3
+# is deprecated and will be removed in an upcoming release.
+# Consider moving to testnet4 now by using -testnet4.
 #testnet=1
+
+# Use the testnet4 chain. Equivalent to -chain=testnet4.
+#testnet4=1
 
 
 ### Node relay options
@@ -563,41 +549,42 @@ Generated with Bitcoin Core 24.0.1
 # Relay and mine data carrier transactions (default: 1)
 #datacarrier=1
 
-# Maximum size of data in data carrier transactions we relay and mine
-# (default: 83)
+# Relay and mine transactions whose data-carrying raw scriptPubKey is of
+# this size or less (default: 83)
 #datacarriersize=1
-
-# Accept transaction replace-by-fee without requiring replaceability
-# signaling (default: 0)
-#mempoolfullrbf=1
 
 # Fees (in BTC/kvB) smaller than this are considered zero fee for
 # relaying, mining and transaction creation (default: 0.00001)
 #minrelaytxfee=<amt>
 
-# Relay non-P2SH multisig (default: 1)
+# Relay transactions creating non-P2SH multisig outputs (default: 1)
 #permitbaremultisig=1
 
-# Add 'forcerelay' permission to whitelisted inbound peers with default
+# Add 'forcerelay' permission to whitelisted peers with default
 # permissions. This will relay transactions even if the
 # transactions were already in the mempool. (default: 0)
 #whitelistforcerelay=1
 
-# Add 'relay' permission to whitelisted inbound peers with default
-# permissions. This will accept relayed transactions even when not
-# relaying transactions (default: 1)
+# Add 'relay' permission to whitelisted peers with default permissions.
+# This will accept relayed transactions even when not relaying
+# transactions (default: 1)
 #whitelistrelay=1
 
 
 ### Block creation options
 
 
-# Set maximum BIP141 block weight (default: 3996000)
+# Set maximum BIP141 block weight (default: 4000000)
 #blockmaxweight=<n>
 
 # Set lowest fee rate (in BTC/kvB) for transactions to be included in
 # block creation. (default: 0.00001)
 #blockmintxfee=<amt>
+
+# Reserve space for the fixed-size block header plus the largest coinbase
+# transaction the mining software may add to the block. (default:
+# 8000).
+#blockreservedweight=<n>
 
 
 ### RPC server options
@@ -606,10 +593,11 @@ Generated with Bitcoin Core 24.0.1
 # Accept public REST requests (default: 0)
 #rest=1
 
-# Allow JSON-RPC connections from specified source. Valid for <ip> are a
-# single IP (e.g. 1.2.3.4), a network/netmask (e.g.
-# 1.2.3.4/255.255.255.0) or a network/CIDR (e.g. 1.2.3.4/24). This
-# option can be specified multiple times
+# Allow JSON-RPC connections from specified source. Valid values for <ip>
+# are a single IP (e.g. 1.2.3.4), a network/netmask (e.g.
+# 1.2.3.4/255.255.255.0), a network/CIDR (e.g. 1.2.3.4/24), all
+# ipv4 (0.0.0.0/0), or all ipv6 (::/0). This option can be
+# specified multiple times
 #rpcallowip=<ip>
 
 # Username and HMAC-SHA-256 hashed password for JSON-RPC connections. The
@@ -632,18 +620,18 @@ Generated with Bitcoin Core 24.0.1
 # net-specific datadir location. (default: data dir)
 #rpccookiefile=<loc>
 
+# Set permissions on the RPC auth cookie file so that it is readable by
+# [owner|group|all] (default: owner [via umask 0077])
+#rpccookieperms=<readable-by>
+
 # Password for JSON-RPC connections
 #rpcpassword=<pw>
 
-# Listen for JSON-RPC connections on <port> (default: 8332, testnet:
-# 18332, signet: 38332, regtest: 18443)
+# Listen for JSON-RPC connections on <port> (default: 8332, testnet3:
+# 18332, testnet4: 48332, signet: 38332, regtest: 18443)
 #rpcport=<port>
 
-# Sets the serialization of raw transaction or block hex returned in
-# non-verbose mode, non-segwit(0) or segwit(1) (default: 1)
-#rpcserialversion=1
-
-# Set the number of threads to service RPC calls (default: 4)
+# Set the number of threads to service RPC calls (default: 16)
 #rpcthreads=<n>
 
 # Username for JSON-RPC connections
@@ -678,8 +666,11 @@ Generated with Bitcoin Core 24.0.1
 # Options for mainnet
 [main]
 
-# Options for testnet
+# Options for testnet3
 [test]
+
+# Options for testnet4
+[testnet4]
 
 # Options for signet
 [signet]

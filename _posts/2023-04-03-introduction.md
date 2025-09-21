@@ -34,7 +34,7 @@ Suggested requirements:
 
 Advantages: Self-sovereign solution that maximizes security and affordability.
 
-This session will guide you through the steps necessary to install Ubuntu on a spare laptop or desktop computer of yours. Almost all machines built in the past ten years will be sufficient, and it's up to you to find a suitable machine, either a spare machine you find at home or one you get from a flea market. Check the list below for whether your machine is powerful enough, and don't forget that some parts might be easily upgradable. Either way, you can always upgrade later and move your node to a new device.
+This session will guide you through the steps necessary to install Ubuntu on a spare laptop or desktop computer of yours. Almost all machines built in the past ten years will be sufficient, and it's up to you to find a suitable machine, either a spare machine you find at home or one you get from a flea market. Check the list above for whether your machine is powerful enough, and don't forget that some parts might be easily upgradable. Either way, you can always upgrade later and move your node to a new device.
 
 Additionally you will need stable internet and electricity where the node is being placed, and it should not pose a fire hazard.
 

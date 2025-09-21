@@ -13,7 +13,7 @@ Tor is a public relay network that helps us to both anonymize our node's locatio
 - [Tor Project on Github](https://github.com/torproject/tor)
 - [Tor Project Support](https://support.torproject.org/)
 
-## Install Tor from the repository
+## Install Tor from the repository (recommended)
 
 You can install tor from the Ubuntu software repository with the command:
 
@@ -33,7 +33,7 @@ You may install Tor from source using the instructions below.
 We will have to install some packages on our machine so we can compile Tor.
 
 ```shell
-sudo apt install libssl-dev zlib1g zlib1g-dev asciidoc
+sudo apt install automake libevent-dev libssl-dev zlib1g zlib1g-dev asciidoc
 ```
 
 ### Download and compile Tor
@@ -52,8 +52,12 @@ We will compile the code by executing the commands below, one by one. Look out f
 ./autogen.sh
 ./configure
 make
-make install
+sudo make install
 ```
+
+You can now run tor with `tor`, but the application will quit when you close the terminal. To push the process into the background run:
+
+`nohup tor > /dev/null 2> /home/ubuntu/tor_err.log &`
 
 **Congratulations, you have installed Tor! Continue below to configure Tor and LND](#configure-lnd)**
 
