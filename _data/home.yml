@@ -73,6 +73,10 @@ project_entries:
     url: geyser
     desc: Connect your node to Geyser
     
+  - title: Chaper 11
+    url: nutshell
+    desc: Run your own ecash mint
+    
 resources:
   - title: Builder's Guide
     url: https://docs.lightning.engineering/
