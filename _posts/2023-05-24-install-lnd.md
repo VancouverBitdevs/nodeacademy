@@ -133,7 +133,7 @@ cd lightning-terminal
 
 ### Compiling litd
 
-Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.13.1`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
+Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.15.2`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
 git checkout v0.15.2-alpha
