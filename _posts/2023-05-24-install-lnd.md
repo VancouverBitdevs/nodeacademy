@@ -126,7 +126,7 @@ cd ~/git
 
 Next we are going to download the source code for litd directly from the Github repository.
 
-```
+```shell
 git clone https://github.com/lightninglabs/lightning-terminal.git
 cd lightning-terminal
 ```
