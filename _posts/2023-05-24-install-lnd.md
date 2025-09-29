@@ -109,6 +109,8 @@ We can now check our installation.
 
 ```shell
 bash
+```
+```shell
 go version
 ```
 
