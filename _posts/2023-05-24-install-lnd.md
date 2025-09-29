@@ -70,7 +70,7 @@ which go
 sudo rm -rf /usr/local/go
 ```
 
-We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.5`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
+We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.25.1`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
 
 ```shell
 cd ~/Downloads
