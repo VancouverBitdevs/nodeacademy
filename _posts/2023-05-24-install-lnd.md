@@ -177,7 +177,7 @@ tar xvf lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz
 As we don't want to blindly trust the binaries being legit, we are going to verify them using GPG. To do that, we are going to add the GPG keys of the maintainer. We only have to do this once, as we upgrade later we will no longer have to download the key.
 
 ```shell
-gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys 187F6ADD93AE3B0CF335AA6AB984570980684DCC
+gpg --keyserver hkps://keyserver.ubuntu.com --recv-keys C20A78516A0944900EBFCA29961CC8259AE675D4
 ```
 
 Next, we are going to download the manifest and the signature and check whether the manifest is properly signed.
@@ -185,17 +185,17 @@ Next, we are going to download the manifest and the signature and check whether 
 ```shell
 cd ~/Downloads
 wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/manifest-v0.15.2-alpha.txt
-wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/manifest-ViktorTigerstrom-v0.15.2-alpha.sig
-gpg --verify manifest-ViktorTigerstrom-v0.15.2-alpha.sig manifest-v0.15.2-alpha.txt
+wget https://github.com/lightninglabs/lightning-terminal/releases/download/v0.15.2-alpha/manifest-ViktorT-11-v0.15.2-alpha.sig
+gpg --verify manifest-ViktorT-11-v0.15.2-alpha.sig manifest-v0.15.2-alpha.txt
 ```
 
-We should get the result: `gpg: Good signature from "Viktor Tigerström <vtigerstrom@gmail.com>"`
+We should get the result: `gpg: Good signature from "Viktor Torstensson <viktor.t.git@gmail.com>"`
 
 Finally, we will have to check whether the SHA256 hash of the binaries we downloaded matches what is signed in the manifest.
 
 ```shell
 cd ~/Downloads
-echo "$(cat manifest-v0.15.2-alpha.txt) lightning-terminal-linux-amd64-v0.15.2-alpha.tar.gz" | sha256sum -c --ignore-missing
+sha256sum -c --ignore-missing manifest-v0.15.2-alpha.txt
 ```
 
 You should see `OK` printed behind every file:
