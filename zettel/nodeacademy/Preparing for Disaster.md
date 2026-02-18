@@ -1,0 +1,87 @@
+A disaster refers to the worst possible situation when running a Lightning node: The node won't start due to database or file system corruption, loss of data or loss of the entire node.
+
+The most likely scenarios that could lead to disaster:
+
+- We forget to pay our Lunanode bill and our node gets deleted
+- A short circuit at home fries our node
+- Our file system gets corrupted (almost guaranteed to happen with an SD card, and will eventually happen to every HDD)
+- Error while migrating a node
+
+To mitigate these problems, we can:
+
+- Always use proper power supplies (a thick heavy brick somewhere along the cable is a good sign)
+- Use quality SSDs, possibly with separate partitions or even RAID
+- Exercise caution when migrating our node
+
+### Preparing for disaster
+
+#### The Seed
+
+Always back up your seed, ideally with a pencil on a piece of paper. Keep this paper somewhere dry and safe.
+
+#### Static channel backup
+
+The static channel backup, or `channel.backup` is located in `~/.lnd/data/chain/bitcoin/mainnet`.
+It's not an actual backup, as it doesn't allow us to revive our channels and cannot be used to migrate channels.
+Instead, it functions as an "emergency distress beacon" to our peers. The file contains information about our channels, their channel points and our peers.
+Once we activate this file, our node will send a distress signal to its peers, urging them to force close all channels.
+
+This file only works for peers that are online and reachable.
+
+Every time we open a new channel, the file is updated.
+
+We can also grab the file and its contents from the command line.
+
+```shell
+lncli exportchanbackup --all
+```
+This returns the following file:
+
+```
+{
+    "single_chan_backups": {
+        "chan_backups": [
+        ]
+    },
+    "multi_chan_backup": {
+        "chan_points": [
+        ],
+        "multi_chan_backup": "c3aabf4fe30ccd061f24263166ee99183aa40f8dc8900f511b4538f536bb50733dac259c5004da5e8c6d867656"
+    }
+}
+```
+
+We can save it in a text file on our personal computer. Ideally we repeat this action every time we open a channel.
+
+We can verify a channel backup with the command:
+
+```shell
+lncli verifychanbackup --multi_file ~/.lnd/data/chain/bitcoin/mainnet/channel.backup
+```
+
+It should return a list of all your channel points.
+
+```
+{
+    "chan_points":  [
+        "34ddc096698a4b288c6e2b735c2dd7ed983b9d45d85075cd88d51ff001824427:1",
+        "13ea70b975e1d5fabff5cff2f4c535958c2599f75e05d2616efbabc974617e12:1"
+    ]
+}
+```
+
+From our personal machine, we can also use the `scp` utlity to copy the file directly to our machine:
+
+```shell
+scp ubuntu@<your nodes ip>:/home/ubuntu/.lnd/data/chain/bitcoin/mainnet/channel.backup ~/Downloads
+```
+
+We can do this every time we open a channel!
+
+#### Channel Database
+
+While the channel database (`channel.db`) is generally not suitable for recovery, it might help us in some rare situations where the peer is unavailable.
+
+If you do suffer from a catastrophic failure of your node, never delete your data! Keep as much data as you can, especially anything in the `.lnd` directory.
+
+[[Configure LND]]
