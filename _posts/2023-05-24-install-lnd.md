@@ -61,7 +61,8 @@ The first time you do that, you will be asked to confirm the download. Enter `Y`
 
 ### Install/Upgrade go
 
-if GO is already installed and needs to be upgraded, do this procedure to find out installation folder, make sure the path on the third like matches the output of which go command.
+If Go is already installed and needs to be upgraded, do this procedure to find out installation folder, make sure the path on the third like matches the output of which go command.
+
 ```shell
 go version
 
