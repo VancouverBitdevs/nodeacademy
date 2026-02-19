@@ -6,7 +6,7 @@ tags: [academy, bitcoin]
 
 ## Installing and syncing Bitcoin Core
 
-Bitcoin Core, also known by its process name `bitcoind`, is by far the most popular implementation of a Bitcoin node. It is written in C++ and as of today available as version 29.0. It is a descendant of the "original" Bitcoin implementation, released in January 2009 by Satoshi Nakamoto. The source code can be found on the project's website [bitcoincore.org](https://bitcoincore.org/) as well as the [Github repository.](https://github.com/bitcoin/bitcoin).
+Bitcoin Core, also known by its process name `bitcoind`, is by far the most popular implementation of a Bitcoin node. It is written in C++ and as of today available as version 30.2. It is a descendant of the "original" Bitcoin implementation, released in January 2009 by Satoshi Nakamoto. The source code can be found on the project's website [bitcoincore.org](https://bitcoincore.org/) as well as the [Github repository.](https://github.com/bitcoin/bitcoin).
 
 ### Useful resources:
 
@@ -33,7 +33,6 @@ This process is the most "raw" of all installation options, and will take a cons
 To install Bitcoin Core from source, we will first need to install a few software packages that help our system understand the code that we will be compiling. They can be installed in one go with the command below. As part of this command, you will be shown how much space these programs will occupy on your machine. We can agree by typing `Y` and hitting the `Enter` key.
 
 ```shell
-sudo snap install cmake --classic
 sudo apt install build-essential cmake pkgconf python3 libevent-dev libboost-dev libsqlite3-dev libzmq3-dev
 ```
 
@@ -58,7 +57,7 @@ cd bitcoin
 Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `27`. You can check the latest version on the [release page of the project](https://github.com/bitcoin/bitcoin/releases).
 
 ```shell
-git checkout v29.0
+git checkout v30.2
 ```
 
 Now we will generate a "makefile". This makefile contains information about our system and its configuration, as well as the limitations and features of our computer. At this step we could theoretically define a long list of potential configuration options, but for the purpose of our node we will stick with the defaults. Be aware that for this command to work, you will need to be in the right directory, which if you followed the steps above, you can always find at `~/git/bitcoin`. The `DWITH_ZMQ=ON` flag will make sure ZMQ is compiled, as we will need it later.
@@ -85,7 +84,7 @@ You can now verify you installed the correct version:
 bitcoind --version
 ```
 
-You should see: `Bitcoin Core daemon version v29.0`
+You should see: `Bitcoin Core daemon version v30.2`
 
 **Congratulations, you now have Bitcoin Core installed on your machine! We can continue to [the next guide](/configure-bitcoin) to configure it.**
 
@@ -101,19 +100,19 @@ cd ~/Downloads
 Next we are going to download the correct binary. On the [project's website](https://bitcoincore.org/en/download/) we can find the available software for Windows, Mac OS X and Linux. If you are running your node on a Raspberry Pi, choose the `ARM Linux` link and copy it. All others will use the `Linux (tgz)` link. In Linux, we will download it like this. Replace the filename with your filename if you are using a different version, or a different operating system.
 
 ```shell
-wget https://bitcoincore.org/bin/bitcoin-core-29.0/bitcoin-29.0-x86_64-linux-gnu.tar.gz
+wget https://bitcoincore.org/bin/bitcoin-core-30.2/bitcoin-30.2-x86_64-linux-gnu.tar.gz
 ```
 
 This is a compressed file, similar to a `.zip` file or `.rar` file. We can unpack it with the following command:
 
 ```shell
-tar xvf bitcoin-29.0-x86_64-linux-gnu.tar.gz
+tar xvf bitcoin-30.2-x86_64-linux-gnu.tar.gz
 ```
 
 This will place our binaries into a new folder. We are going to move it somwhere where our system can permanently find it.
 
 ```shell
-sudo mv bitcoin-29.0/bin/* /usr/local/bin/
+sudo mv bitcoin-30.2/bin/* /usr/local/bin/
 ```
 
 **Congratulations, you now have Bitcoin Core installed on your machine! We can continue to [the next guide](/configure-bitcoin) to configure it.**
