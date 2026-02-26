@@ -71,7 +71,7 @@ which go
 sudo rm -rf /usr/local/go
 ```
 
-We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.22.5`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
+We can find the latest version of go on its [official website](https://go.dev/dl/). At the time of writing, this is `go1.25.1`. We open a terminal on our Ubuntu machine or SSH into it and download the golang source code.
 
 ```shell
 cd ~/Downloads
@@ -110,6 +110,8 @@ We can now check our installation.
 
 ```shell
 bash
+```
+```shell
 go version
 ```
 
@@ -125,14 +127,14 @@ cd ~/git
 
 Next we are going to download the source code for litd directly from the Github repository.
 
-```
+```shell
 git clone https://github.com/lightninglabs/lightning-terminal.git
 cd lightning-terminal
 ```
 
 ### Compiling litd
 
-Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.13.1`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
+Before we compile the software, we will need to specify which version we want to compile. At the time of this writing, the latest version is called `0.15.2`. You can check the latest version on the [release page of the project](https://github.com/lightninglabs/lightning-terminal/releases).
 
 ```shell
 git checkout v0.15.2-alpha
