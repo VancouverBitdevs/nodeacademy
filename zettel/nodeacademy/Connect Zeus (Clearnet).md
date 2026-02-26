@@ -58,4 +58,4 @@ Leave 'Use Tor' and Certificate verification `unchecked` and click save node con
 
 You should be able to save your node configuration and connect right away.
 
-[[Configure LND]]
+[[Run LND]]
