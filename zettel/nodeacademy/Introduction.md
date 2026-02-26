@@ -1,0 +1,3 @@
+The Node Academy is an initiative of Vancouver Bitcoiners to grow the number of Lightning Network nodes and increase their quality. It is particularly dedicated to the _Pacific Nodewest_ noderunners community.
+
+The course consists of eight steps and guides the participant from setting up their machine to installing, configuring and maintaining their node. Each step is a guided virtual session in which we explain and discuss the necessary steps and give guidance on how to troubleshoot eventual issues.

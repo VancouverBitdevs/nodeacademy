@@ -1,0 +1,3 @@
+The command line is a text-based interface in which users can interact with a computer's operating system by typing commands to perform various tasks. We will use it to interact with our node, and while most commands will be explained when they become relevant, this section walks you through the basic tasks, such as creating files, moving or deleting them, navigating your computer's file structure or editing configuration files.
+
+[[Installing Ubuntu]]

@@ -1,0 +1,369 @@
+{
+  "main": {
+    "id": "bc89f7e982343f00",
+    "type": "split",
+    "children": [
+      {
+        "id": "d8e538d4860cbe52",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "6d769031fced9396",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Install LNbits.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Install LNbits"
+            }
+          },
+          {
+            "id": "7e72c8b5832823e4",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Run LNbits.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Run LNbits"
+            }
+          },
+          {
+            "id": "857cfb69d72f036e",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "First Steps with LNbits.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "First Steps with LNbits"
+            }
+          },
+          {
+            "id": "e5aeedeaae3e79e7",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Configure LNbits with Systemd.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Configure LNbits with Systemd"
+            }
+          },
+          {
+            "id": "97506f39015a2919",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Update LNbits.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Update LNbits"
+            }
+          },
+          {
+            "id": "093c205935d8a627",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Connect to Geyser.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Connect to Geyser"
+            }
+          },
+          {
+            "id": "4a9055805ebaafcd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Ecash.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Ecash"
+            }
+          },
+          {
+            "id": "3e8d8425a2a083c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Nutshell Prerequisites.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Nutshell Prerequisites"
+            }
+          },
+          {
+            "id": "b1eb6742026723f9",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Install Nutshell.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Install Nutshell"
+            }
+          },
+          {
+            "id": "29a6159c7f083077",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Run Nutshell.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Run Nutshell"
+            }
+          },
+          {
+            "id": "7b5d1583294b6a0a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Configure Nutshell with Systemd.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Configure Nutshell with Systemd"
+            }
+          }
+        ],
+        "currentTab": 6
+      },
+      {
+        "id": "b072b8bafd25ece1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f67e0c7e5772eb19",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {},
+              "icon": "lucide-git-fork",
+              "title": "Graph view"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "6c4bdb60782ef5a5",
+    "type": "split",
+    "children": [
+      {
+        "id": "9f7aebde34d05340",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e11ce01b2d9fb1eb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c0ffd24b3e647b15",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "eebfbec5e3c896af",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "3a0a5a3c36125d77",
+    "type": "split",
+    "children": [
+      {
+        "id": "9753090588f20c7c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "43a582111a5c81e4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "c78dd41f96a73e40",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "7e6046a939735f0d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "cb50d71b386415e9",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "647b14bc7a12adea",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "f67e0c7e5772eb19",
+  "lastOpenFiles": [
+    "Ecash.md",
+    "Configure Nutshell with Systemd.md",
+    "Run Nutshell.md",
+    "Install Nutshell.md",
+    "Nutshell Prerequisites.md",
+    "Connect to Geyser.md",
+    "Update LNbits.md",
+    "Install LNbits.md",
+    "Connect Zeus (Clearnet).md",
+    "LNbits.md",
+    "First Steps with LNbits.md",
+    "Configure LNbits with Systemd.md",
+    "Run LNbits.md",
+    "Connect Zeus (LNC).md",
+    "Connect to your node.md",
+    "Test LND.md",
+    "Useful LND Commands.md",
+    "Create a Wallet.md",
+    "Access the LITD Interface.md",
+    "LND Accounts (LNC).md",
+    "Installing Bitcoin Core.md",
+    "Updating Ubuntu.md",
+    "Preparing for Disaster.md",
+    "Registering LND with Systemd.md",
+    "Registering Bitcoin Core with Systemd.md",
+    "Upgrading Bitcoin Core.md"
+  ]
+}
